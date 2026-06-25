@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Enna CRM</title>
-
+    <title>Enna - CRM inteligente para psi</title>
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Sora:wght@200;300;400;600&display=swap" rel="stylesheet">
 
@@ -25,14 +24,9 @@
             --max-width: 1400px;
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
-        html,
-        body {
+        html, body {
             background-color: var(--bg-color);
             color: var(--text-primary);
             font-family: 'Sora', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
@@ -52,7 +46,6 @@
             overflow: hidden;
             pointer-events: none;
         }
-
         .orb {
             position: absolute;
             border-radius: 50%;
@@ -60,47 +53,14 @@
             opacity: 0.5;
             animation: float 25s infinite ease-in-out;
         }
-
-        .orb-1 {
-            width: 600px;
-            height: 600px;
-            background: #E0E7FF;
-            top: -20%;
-            left: -10%;
-        }
-
-        .orb-2 {
-            width: 500px;
-            height: 500px;
-            background: #DCFCE7;
-            bottom: -20%;
-            right: -10%;
-            animation-delay: -5s;
-        }
-
-        .orb-3 {
-            width: 400px;
-            height: 400px;
-            background: #F3F4F6;
-            top: 40%;
-            left: 40%;
-            animation-delay: -10s;
-        }
+        .orb-1 { width: 600px; height: 600px; background: #E0E7FF; top: -20%; left: -10%; }
+        .orb-2 { width: 500px; height: 500px; background: #DCFCE7; bottom: -20%; right: -10%; animation-delay: -5s; }
+        .orb-3 { width: 400px; height: 400px; background: #F3F4F6; top: 40%; left: 40%; animation-delay: -10s; }
 
         @keyframes float {
-
-            0%,
-            100% {
-                transform: translate(0, 0) scale(1);
-            }
-
-            33% {
-                transform: translate(30px, -20px) scale(1.05);
-            }
-
-            66% {
-                transform: translate(-20px, 30px) scale(0.95);
-            }
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            33% { transform: translate(30px, -20px) scale(1.05); }
+            66% { transform: translate(-20px, 30px) scale(0.95); }
         }
 
         .container {
@@ -119,8 +79,7 @@
             padding: var(--spacing-lg) 0;
         }
 
-        h1,
-        h2 {
+        h1, h2 {
             font-weight: 200;
             font-size: clamp(3rem, 9vw, 8rem);
             line-height: 0.95;
@@ -143,7 +102,6 @@
             overflow: hidden;
             display: block;
         }
-
         .reveal-text {
             display: block;
         }
@@ -164,43 +122,9 @@
             font-size: 1.1rem;
             margin-bottom: 1.2rem;
         }
-
-        .chat-msg:last-child {
-            margin-bottom: 0;
-        }
-
-        .chat-msg.bot {
-            color: var(--accent-indigo);
-            font-weight: 400;
-        }
-
-        .chat-msg.user {
-            color: var(--text-primary);
-            text-align: right;
-            opacity: 0.7;
-        }
-
-        .video-wrapper {
-            position: relative;
-            width: 100%;
-            max-width: 900px;
-            aspect-ratio: 16 / 9;
-            border-radius: 24px;
-            overflow: hidden;
-            border: 1px solid rgba(0, 0, 0, 0.05);
-            box-shadow: 0 30px 60px -25px rgba(0, 0, 0, 0.25);
-            background: rgba(255, 255, 255, 0.7);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-        }
-
-        .video-wrapper iframe {
-            position: absolute;
-            inset: 0;
-            width: 100%;
-            height: 100%;
-            border: 0;
-        }
+        .chat-msg:last-child { margin-bottom: 0; }
+        .chat-msg.bot { color: var(--accent-indigo); font-weight: 400; }
+        .chat-msg.user { color: var(--text-primary); text-align: right; opacity: 0.7; }
 
         .cta-container {
             margin-top: var(--spacing-md);
@@ -209,7 +133,6 @@
             line-height: 1.35;
             max-width: 600px;
         }
-
         .cta-link {
             color: var(--text-primary);
             text-decoration: none;
@@ -217,14 +140,12 @@
             transition: all 0.3s ease;
             padding-bottom: 4px;
         }
-
         .cta-link:hover {
             color: var(--accent-indigo);
             padding-bottom: 8px;
         }
     </style>
 </head>
-
 <body>
 
     <div class="bg-orbs">
@@ -240,19 +161,8 @@
                 <span class="reveal-mask"><span class="reveal-text text-accent" id="l2">Mais escuta.</span></span>
             </h1>
             <p class="reveal-text" id="p1">
-                O CRM inteligente para psicólogas. A Enna organiza sua agenda, finanças e prontuários para que você
-                foque no que realmente importa: seus pacientes.
+                O CRM inteligente para psicólogas. A Enna organiza sua agenda, finanças e prontuários para que você foque no que realmente importa: seus pacientes.
             </p>
-
-            <div class="video-wrapper" id="video-box" style="margin-top: var(--spacing-sm);">
-                <iframe
-                    src="https://www.youtube-nocookie.com/embed/B2-Kl0TanOQ?rel=0&amp;modestbranding=1"
-                    title="Enna CRM"
-                    loading="lazy"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    referrerpolicy="strict-origin-when-cross-origin"
-                    allowfullscreen></iframe>
-            </div>
         </section>
 
         <section>
@@ -260,29 +170,23 @@
                 <span class="reveal-mask"><span class="reveal-text" id="l3">A burocracia</span></span>
                 <span class="reveal-mask"><span class="reveal-text text-accent" id="l4">resolvida no chat.</span></span>
             </h2>
-            <p class="reveal-text" id="p2">Esqueça o caderno de recibos e o WhatsApp para cobrar. Nossa assistente
-                entende o contexto da sua clínica e faz o trabalho pesado por você.</p>
-
+            <p class="reveal-text" id="p2">Esqueça o caderno de recibos e o WhatsApp para cobrar. Nossa assistente entende o contexto da sua clínica e faz o trabalho pesado por você.</p>
+            
             <div class="chat-mockup" id="chat-box">
                 <div class="chat-msg user">Registre o pagamento de R$200 da Maria via Pix de hoje.</div>
-                <div class="chat-msg bot">Feito. Recibo gerado, prontuário atualizado e a Maria foi movida para a lista
-                    de sessões pagas do mês.</div>
+                <div class="chat-msg bot">Feito. Recibo gerado, prontuário atualizado e a Maria foi movida para a lista de sessões pagas do mês.</div>
             </div>
         </section>
-
-
 
         <section>
             <h2>
                 <span class="reveal-mask"><span class="reveal-text" id="l5">Sua clínica,</span></span>
                 <span class="reveal-mask"><span class="reveal-text text-accent" id="l6">sob controle.</span></span>
             </h2>
-            <p class="reveal-text" id="p3">Junte-se a psicólogas que já recuperaram suas horas de trabalho. Teste a Enna
-                grátis por 14 dias. Sem cartão de crédito.</p>
-
+            <p class="reveal-text" id="p3">Junte-se a psicólogas que já recuperaram suas horas de trabalho. Teste a Enna grátis por 14 dias. Sem cartão de crédito.</p>
+            
             <div class="cta-container">
-                Acesse <a href="https://github.com/atryatech/enna-lp/releases/latest/download/enna-setup.exe"
-                    class="cta-link">aqui</a> para baixar.
+                Acesse <a href="https://github.com/atryatech/enna/releases/latest/download/enna-setup.exe" class="cta-link">aqui</a> para baixar.
             </div>
         </section>
     </div>
@@ -322,18 +226,10 @@
                 y: 0, opacity: 1, duration: 1.5, ease: "power4.out",
                 scrollTrigger: { trigger: "section:nth-of-type(2)", start: "top 70%" }
             });
-            gsap.fromTo("#chat-box",
-                { y: 56, opacity: 0 },
-                {
-                    y: 0, opacity: 1, duration: 1.2, ease: "power3.out", delay: 0.4,
-                    scrollTrigger: { trigger: "section:nth-of-type(2)", start: "top 60%" }
-                }
-            );
-
-            gsap.fromTo("#video-box",
-                { y: 56, opacity: 0 },
-                {
-                    y: 0, opacity: 1, duration: 1.2, ease: "power3.out", delay: 1.4
+            gsap.fromTo("#chat-box", 
+                { y: 56, opacity: 0 }, 
+                { y: 0, opacity: 1, duration: 1.2, ease: "power3.out", delay: 0.4,
+                  scrollTrigger: { trigger: "section:nth-of-type(2)", start: "top 60%" }
                 }
             );
 
@@ -348,5 +244,4 @@
         }
     </script>
 </body>
-
 </html>
