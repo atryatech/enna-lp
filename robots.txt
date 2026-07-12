@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://atryatech.github.io/enna-lp/sitemap.xml
