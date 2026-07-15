@@ -18,17 +18,28 @@ document.querySelectorAll('[role="tab"]').forEach((tab) => {
   });
 });
 
+const utm = new URLSearchParams(location.search);
+const attribution = {
+  source: utm.get("utm_source") || "direct",
+  medium: utm.get("utm_medium") || "",
+  campaign: utm.get("utm_campaign") || "",
+  content: utm.get("utm_content") || "",
+  version: "1.0.0-beta.1"
+};
+
+const recordLandingEvent = (event) => {
+  if (location.protocol !== "https:") return;
+  const payload = JSON.stringify({event, ...attribution});
+  navigator.sendBeacon?.(
+    "https://enna.13-140-147-146.sslip.io/metrics/landing",
+    new Blob([payload], {type: "text/plain"})
+  );
+};
+
 document.querySelectorAll(".download-link").forEach((link) => {
   link.addEventListener("click", () => {
-    const payload = JSON.stringify({event: "download_click", source: new URLSearchParams(location.search).get("utm_source") || "direct"});
-    if (location.protocol === "https:") navigator.sendBeacon?.("https://enna.13-140-147-146.sslip.io/metrics/landing", new Blob([payload], {type: "text/plain"}));
+    recordLandingEvent("download_click");
   });
 });
 
-const source = new URLSearchParams(location.search).get("utm_source") || "direct";
-if (location.protocol === "https:") {
-  navigator.sendBeacon?.(
-    "https://enna.13-140-147-146.sslip.io/metrics/landing",
-    new Blob([JSON.stringify({event: "page_view", source})], {type: "text/plain"})
-  );
-}
+recordLandingEvent("page_view");
